@@ -5,7 +5,7 @@ hide: true
 show_reading_time: false
 ---
 
-Hi! My name is [Jailene Tang]
+Hi! My name is Jailene Tang
 
 ### Development Environment
 
