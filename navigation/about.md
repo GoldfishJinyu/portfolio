@@ -60,11 +60,9 @@ Flags are made using Wikipedia images
     // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
-        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
-        {"flag": "b/b9/Flag_of_Oregon.svg", "greeting": "Hi", "description": "Oregon - 9 years"},
-        {"flag": "b/be/Flag_of_England.svg", "greeting": "Alright mate", "description": "England - 2 years"},
-        {"flag": "e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Hawaii - 2 years"},
-    ];
+        {"flag": "f/fa/Flag_of_the_People%27s_Republic_of_China.svg", "greeting": "你好", "description": "China - 0 to 13"}
+        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - 14 to present"},
+        ];
 
     // 3a. Consider how to update style count for size of container
     // The grid-template-columns has been defined as dynamic with auto-fill and minmax
@@ -110,8 +108,8 @@ Here is what I did at those places
 
 Everything for me, as for many others, revolves around family and faith.
 
-- My mother told me that I was Danish, English. and Irish, here is my researched [family tree]({{site.baseurl}}/images/about/familytree.png)
-- My family is pretty big as I have been married twice, my 1st wife passed away.  We have had 5 kids, 4 adopted by me, 1 biological.  Plus, there are three grandkids.  My name to my grandkids is Abuilito.
+- Both of my parents are Chinese, and I have a order sister who is currently studying in USC for her graduate degree. 
+- I have very close relationship with my aunt and three cousins.
 - The gallery of pics has some of my family, fun, culture and faith memories.
 
 <comment>
