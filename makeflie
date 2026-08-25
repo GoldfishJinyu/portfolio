@@ -1,0 +1,7 @@
+    cd opencs
+    cd student
+    source venv/bin/activate
+    cd ..
+    cd ..
+    cd portfolio
+    code .
