@@ -119,5 +119,4 @@ Gallery of Pics, scroll to the right for more ...
   <img src="{{site.baseurl}}/images/about/jinyuzuozhe.png" alt="Image 1">
   <img src="{{site.baseurl}}/images/about/xiyu.png" alt="Image 2">
   <img src="{{site.baseurl}}/images/about/xiyujinyu.png" alt="Image 3">
-  <img src="{{site.baseurl}}/images/about/surf.jpg" alt="Image 4">
 </div>
