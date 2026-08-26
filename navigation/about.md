@@ -99,10 +99,10 @@ Flags are made using Wikipedia images
 
 Here is what I did at those places
 
-- 🏫 Finished elementary school and 7th grade in China, Beijing. (elementary school in Beijing is from 1st to 6th grade)
-- 🏫 Middle school (8th) and High School in San Diego.
-- 🎓 Oak Vally Middle School class of 2024. 
-- ⛪ Del Norte High Schokl class of 2029. 
+- _(≧∇≦)/_ Finished elementary school and 7th grade in China, Beijing. (elementary school in Beijing is from 1st to 6th grade)
+- _(oﾟ▽ﾟ)o_ Middle school (8th) and High School in San Diego.
+- _(๑>◡<๑)_ Oak Vally Middle School class of 2024. 
+- _(￣▽￣)~_ Del Norte High Schokl class of 2029. 
 
 ### Culture, Family, and Fun
 
