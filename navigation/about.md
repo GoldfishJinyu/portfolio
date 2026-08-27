@@ -119,4 +119,9 @@ Gallery of Pics, scroll to the right for more ...
   <img src="{{site.baseurl}}/images/about/jinyuzuozhe.png" alt="Image 1">
   <img src="{{site.baseurl}}/images/about/xiyu.png" alt="Image 2">
   <img src="{{site.baseurl}}/images/about/xiyujinyu.png" alt="Image 3">
+  <img src="{{site.baseurl}}/images/about/chifan.jpg" alt="Image 4">
+  <img src="{{site.baseurl}}/images/about/shengdan.jpg" alt="Image 5">
+  <img src="{{site.baseurl}}/images/about/ruoruo.jpg" alt="Image 6">
+
+
 </div>
