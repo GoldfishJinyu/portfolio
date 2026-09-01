@@ -11,7 +11,7 @@
 # === NESTED STRUCTURE (organized by category) ===
 # Games
 games/cs-pathway:dev
-games/gamify:dev
+games/goldfish:dev
 
 # Systems
 #systems/student-management-groups
