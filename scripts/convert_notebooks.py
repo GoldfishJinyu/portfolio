@@ -404,6 +404,29 @@ class UiRunner:
 
     def rendered_markup_lines(self) -> list[str]:
         """Build the final HTML/script wrapper markup inserted into rendered markdown."""
+        if self.options.get('show_code') is True:
+            runner_suffix = re.sub(r'[^A-Za-z0-9_]', '_', self.runner_id)
+            code_variable = f'ui_runner_code_{runner_suffix}'
+            challenge_variable = f'ui_runner_challenge_{runner_suffix}'
+            editable_code = self.html.strip()
+            if self.script.strip():
+                editable_code = f'{editable_code}\n<script>\n{self.script.strip()}\n</script>'
+
+            return [
+                f'{{% capture {code_variable} %}}',
+                editable_code,
+                '{% endcapture %}',
+                f'{{% capture {challenge_variable} %}}',
+                self.description,
+                '{% endcapture %}',
+                '{% include runners/html.html',
+                f'   runner_id="{self.runner_id}"',
+                f'   challenge={challenge_variable}',
+                f'   code={code_variable}',
+                '%}',
+                '',
+            ]
+
         return [
             '<div class="ui-runner">',
             self.html,

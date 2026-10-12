@@ -1,0 +1,73 @@
+<div class="ui-runner-container html-runner" id="html-runner-{{ include.runner_id }}" data-storage-key="{{ page.permalink | replace: '/', '_' }}_{{ include.runner_id }}">
+  {% include runners/fragments/challenge-box.html challenge=include.challenge %}
+  <textarea class="html-runner-source" hidden>{{ include.code | strip | escape }}</textarea>
+
+  {% capture html_runner_top_controls %}
+    <button type="button" class="runBtn" title="Run HTML">▶</button>
+    <button type="button" class="stopBtn" title="Stop preview">■</button>
+    <button type="button" class="copyBtn" title="Copy HTML">⎘</button>
+    <button type="button" class="saveBtn" title="Save HTML">💾</button>
+    <button type="button" class="clearStorageBtn" title="Reset HTML">🗑</button>
+  {% endcapture %}
+  {% capture html_runner_bottom_controls %}
+    {% include runners/fragments/editor-stats.html %}
+  {% endcapture %}
+  {% include runners/fragments/editor-container.html
+     top_controls=html_runner_top_controls
+     bottom_controls=html_runner_bottom_controls
+  %}
+
+  <div class="output-container">
+    <div class="control-panel">
+      <span>HTML Preview</span>
+      <button type="button" class="resetBtn" title="Clear preview">↻</button>
+    </div>
+    <iframe class="ui-output html-runner-preview" title="HTML preview" sandbox="allow-scripts"></iframe>
+  </div>
+</div>
+
+<script type="module">
+import { BaseRunner } from '{{ site.baseurl }}/assets/js/pages/runners/index.js';
+
+(function() {
+  const container = document.getElementById('html-runner-{{ include.runner_id }}');
+  if (!container) return;
+
+  const defaultCode = container.querySelector('.html-runner-source').value;
+  const runner = new BaseRunner(container, {
+    storageKey: container.dataset.storageKey,
+  });
+  const editor = runner.initializeEditor({
+    defaultCode,
+    editorHeight: '320px',
+    codeMirrorOptions: {
+      lineNumbers: true,
+      mode: 'htmlmixed',
+      theme: 'darcula',
+      indentUnit: 2,
+      tabSize: 2,
+      styleSelectedText: true,
+    },
+  });
+  const preview = container.querySelector('.html-runner-preview');
+
+  function clearPreview() {
+    preview.srcdoc = '';
+  }
+
+  function runHtml() {
+    preview.srcdoc = editor.getValue();
+  }
+
+  runner.bindEditorButtons({
+    resetValue: defaultCode,
+    onClear: clearPreview,
+    saveFeedback: '✔',
+    copyFeedback: '✔',
+  });
+  runner.bindButton('.runBtn', runHtml);
+  runner.bindButton('.stopBtn', clearPreview);
+  runner.bindButton('.resetBtn', clearPreview);
+  runner.bindShortcut(runHtml);
+})();
+</script>
