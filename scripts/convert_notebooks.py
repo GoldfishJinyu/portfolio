@@ -409,9 +409,15 @@ class UiRunner:
             runner_suffix = re.sub(r'[^A-Za-z0-9_]', '_', self.runner_id)
             code_variable = f'ui_runner_code_{runner_suffix}'
             challenge_variable = f'ui_runner_challenge_{runner_suffix}'
+            html_lines = self.html.strip().splitlines()
+            html_array_lines = ',\n'.join(
+                f'  {json.dumps(line)}' for line in html_lines
+            )
             editable_code = (
                 "outputElement.innerHTML = '';\n"
-                f'outputElement.innerHTML = {json.dumps(self.html.strip())};'
+                'outputElement.innerHTML = [\n'
+                f'{html_array_lines}\n'
+                "].join('\\n');"
             )
             if self.script.strip():
                 editable_code = f'{editable_code}\n\n{self.script.strip()}'
