@@ -33,7 +33,7 @@ import { BaseRunner, UiExecutor } from '{{ site.baseurl }}/assets/js/pages/runne
   const container = document.getElementById('ui-runner-{{ include.runner_id }}');
   if (!container) return;
   
-  const defaultCode = `{{ include.code }}`.trim();
+  const defaultCode = {{ include.code | jsonify }}.trim();
   const editorHeight = "{{ include.height }}";
   const outputHeight = "{{ include.output_height }}";
   const storageKey = container.dataset.storageKey;

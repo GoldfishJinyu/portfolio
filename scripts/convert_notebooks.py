@@ -1,4 +1,5 @@
 import glob
+import json
 from nbconvert import MarkdownExporter
 from nbconvert.utils.exceptions import ConversionException
 import os
@@ -408,9 +409,12 @@ class UiRunner:
             runner_suffix = re.sub(r'[^A-Za-z0-9_]', '_', self.runner_id)
             code_variable = f'ui_runner_code_{runner_suffix}'
             challenge_variable = f'ui_runner_challenge_{runner_suffix}'
-            editable_code = self.html.strip()
+            editable_code = (
+                "outputElement.innerHTML = '';\n"
+                f'outputElement.innerHTML = {json.dumps(self.html.strip())};'
+            )
             if self.script.strip():
-                editable_code = f'{editable_code}\n<script>\n{self.script.strip()}\n</script>'
+                editable_code = f'{editable_code}\n\n{self.script.strip()}'
 
             return [
                 f'{{% capture {code_variable} %}}',
@@ -419,7 +423,7 @@ class UiRunner:
                 f'{{% capture {challenge_variable} %}}',
                 self.description,
                 '{% endcapture %}',
-                '{% include runners/html.html',
+                '{% include runners/ui.html',
                 f'   runner_id="{self.runner_id}"',
                 f'   challenge={challenge_variable}',
                 f'   code={code_variable}',
