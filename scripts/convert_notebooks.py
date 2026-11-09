@@ -12,10 +12,11 @@ import concurrent.futures, traceback, re
 from dataclasses import dataclass, asdict
 from typing import Any, Optional
 
-if __name__ == "__main__":
-    from progress_bar import ProgressBar
+if __package__:
+    from .progress_bar import ProgressBar
 else:
-    from scripts.progress_bar import ProgressBar
+    # Direct execution and multiprocessing's __mp_main__ have no package.
+    from progress_bar import ProgressBar
 
 
 ###########################################
